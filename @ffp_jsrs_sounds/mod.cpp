@@ -1,0 +1,10 @@
+﻿name = "FFP: JSRS Sounds";
+picture = "\ffp_config\data\ffp_picture_ca.paa";
+logoSmall = "\ffp_config\data\ffp_logo_small_ca.paa";
+logo = "\ffp_config\data\ffp_logo_ca.paa";
+logoOver = "\ffp_config\data\ffp_logoOver_ca.paa";
+action = "http://www.anrop.se";
+actionName = "Website";
+overview = "A tribute to FDF mod from the SFP team.";
+hideName = 0;
+hidePicture = 0;
