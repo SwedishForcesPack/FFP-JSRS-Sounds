@@ -11,7 +11,7 @@ REM Mount current folder
 subst p: "%modpath%\source"
 
 REM Build pbo files using pboproject and check for errors
-pboproject +Clean -Engine=Arma3 -Key -Workspace=P:\ -Noisy -P +Mod="%modpath%\@ffp_jsrs_sounds" -F +W -Z P:\ffp
+pboproject +Clean -Engine=Arma3 -Key -Workspace=P:\ -Noisy -P +Mod="%modpath%\@ffp_jsrs_sounds" -F -G +W -Z P:\ffp
 
 REM Remove drive mapping
 subst p: /d
