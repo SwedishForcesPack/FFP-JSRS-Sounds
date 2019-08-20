@@ -1,23 +1,31 @@
 pipeline {
     agent {
-        label 'mikero'
+        label 'hemtt'
     }
 
     stages {
+        stage('Keys') {
+            steps {
+                withCredentials([
+                    file(credentialsId: 'FFP_JSRS_PRIVATE_KEY', variable: 'FFP_JSRS_PRIVATE_KEY'),
+                    file(credentialsId: 'FFP_JSRS_PUBLIC_KEY', variable: 'FFP_JSRS_PUBLIC_KEY')
+                ]) {
+                    bat 'mkdir releases\\keys'
+                    bat 'copy %FFP_JSRS_PRIVATE_KEY% releases\\keys'
+                    bat 'copy %FFP_JSRS_PUBLIC_KEY% releases\\keys'
+                }
+            }
+        }
+
         stage('Build') {
             steps {
-                bat 'build.bat' 
-            }
-            post {
-                always {
-                    bat 'subst p: /d > nul || exit /b 0'
-                }
+                bat 'hemtt build --release'
             }
         }
 
         stage('Archive Build') {
             steps {
-                archiveArtifacts artifacts: '@ffp_jsrs_sounds/**/*'
+                archiveArtifacts artifacts: 'releases/**/*'
             }
         }
 
@@ -27,7 +35,7 @@ pipeline {
             }
 
             steps {
-                publishSteamWorkshop '1220451406', '@ffp_jsrs_sounds', env.GIT_COMMIT
+                publishSteamWorkshop '1220451406', 'releases/1.0.0/@ffp_jsrs', env.GIT_COMMIT
             }
         }
     }

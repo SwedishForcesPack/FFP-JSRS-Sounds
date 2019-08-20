@@ -1,0 +1,13 @@
+{
+  "name": "FFP: JSRS Sounds",
+  "prefix": "ffp_jsrs",
+  "version": "1.0.0",
+  "author": "Swedish Forces Pack",
+  "files": [
+    "mod.cpp"
+  ],
+  "keyname": "ffp_jsrs",
+  "reuse_private_key": true,
+  "signame": "ffp_jsrs",
+  "sigversion": 3
+}
